@@ -1,0 +1,565 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+button {
+  border: none;
+  padding: 5px 10px;
+}
+
+li {
+  list-style: none;
+}
+
+input {
+  border: none;
+  outline: none;
+  padding: 3px 8px;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.loader {
+  --dim: 1.5rem;
+  width: var(--dim);
+  height: var(--dim);
+  position: relative;
+  animation: spin988 2s linear infinite;
+}
+
+.loader .circle {
+  --dim: 0.5rem;
+  width: var(--dim);
+  height: var(--dim);
+  background-color: var(--color);
+  border-radius: 50%;
+  position: absolute;
+}
+
+.loader .circle:nth-child(1) {
+  --color: #ff5acd;
+  top: 0;
+  left: 0;
+}
+
+.loader .circle:nth-child(2) {
+  --color: #fbda61;
+  top: 0;
+  right: 0;
+}
+
+.loader .circle:nth-child(3) {
+  --color: #fbda61;
+  bottom: 0;
+  left: 0;
+}
+
+.loader .circle:nth-child(4) {
+  --color: #ff5acd;
+  bottom: 0;
+  right: 0;
+}
+
+@keyframes spin988 {
+  0% {
+    transform: scale(1) rotate(0);
+  }
+  20%, 25% {
+    transform: scale(1.3) rotate(90deg);
+  }
+  45%, 50% {
+    transform: scale(1) rotate(180deg);
+  }
+  70%, 75% {
+    transform: scale(1.3) rotate(270deg);
+  }
+  95%, 100% {
+    transform: scale(1) rotate(360deg);
+  }
+}
+.CartBtn {
+  width: 200px;
+  height: 40px;
+  border-radius: 12px;
+  margin: 50px auto 0;
+  border: none;
+  background-color: rgb(255, 208, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: 0.5s;
+  overflow: hidden;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.103);
+  position: relative;
+}
+
+.CartBtn p,
+.CartBtn span i {
+  pointer-events: none;
+}
+
+.IconContainer {
+  position: absolute;
+  left: -50px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 2;
+  transition-duration: 0.5s;
+}
+
+.icon {
+  border-radius: 1px;
+}
+
+.text {
+  height: 100%;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(17, 17, 17);
+  z-index: 1;
+  transition-duration: 0.5s;
+  font-size: 1.04em;
+  font-weight: 600;
+}
+
+.CartBtn:hover .IconContainer {
+  transform: translateX(80px);
+  border-radius: 40px;
+  transition-duration: 0.5s;
+}
+
+.CartBtn:hover .text {
+  transform: translate(10px, 0px);
+  transition-duration: 0.5s;
+}
+
+.CartBtn:active {
+  transform: scale(0.95);
+  transition-duration: 0.5s;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: grid;
+  grid-template-areas: "logo form bookmark ";
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: #f9f5f3;
+}
+@media (max-width: 800px) {
+  header {
+    grid-template-areas: "logo  bookmark " "form form";
+  }
+}
+header .logo {
+  grid-area: logo;
+  display: flex;
+  align-items: center;
+}
+header .logo img {
+  height: 100px;
+}
+header .form {
+  grid-area: form;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 800px) {
+  header .form {
+    margin-bottom: 30px;
+  }
+}
+header .form form {
+  border-radius: 30px;
+  background-color: #f9f5f3;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: 0 20px 20px -10px rgba(38, 57, 77, 0.3);
+  transition: all 0.3s ease;
+}
+header .form form:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 20px -10px rgb(38, 57, 77);
+}
+header .form form input {
+  background: transparent;
+  font-size: 18px;
+  padding: 8px 16px;
+}
+@media (max-width: 800px) {
+  header .form form input {
+    font-size: 16px;
+    padding: 6px 12px;
+  }
+}
+header .form form input::-moz-placeholder {
+  color: #dad0cc;
+}
+header .form form input::placeholder {
+  color: #dad0cc;
+}
+header .form form button {
+  background: linear-gradient(to right, #fbda61 30%, #ff5acd 100%);
+  padding: 11px 30px;
+  border-radius: 30px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: bold;
+}
+header .form form button:hover {
+  transform: scale(0.95);
+}
+header .bookmark {
+  display: flex;
+  justify-content: end;
+  grid-area: bookmark;
+}
+header .bookmark button {
+  padding: 10px;
+  font-size: 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: linear-gradient(to top, #fbda61, #ff5acd);
+}
+header .bookmark button i {
+  color: white;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  flex: 1;
+}
+@media (max-width: 1000px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
+main section {
+  height: 100%;
+}
+
+main #result {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: calc(100vh - 107px);
+}
+main #result a {
+  background-color: white;
+  border-top: 2px solid #f9f5f3;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+main #result a:hover {
+  transform: translateY(-2px);
+  background-color: #f9f5f3;
+}
+main #result a .img-wrapper {
+  display: flex;
+  align-items: center;
+}
+main #result a .img-wrapper img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+main #result a h4 {
+  color: #fbda61;
+}
+main #result::-webkit-scrollbar {
+  background-color: white;
+  width: 8px;
+}
+main #result::-webkit-scrollbar-thumb {
+  border-radius: 30px;
+  background-color: #fbda61;
+}
+
+main #recipe {
+  background: #f9f5f3;
+}
+main #recipe figure {
+  position: relative;
+  height: 300px;
+  z-index: 1000;
+}
+@media (max-width: 600px) {
+  main #recipe figure {
+    height: 200px;
+  }
+}
+main #recipe figure::after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  opacity: 0.4;
+  background: linear-gradient(90deg, #a9c0ff 0%, #ffbbec 100%);
+}
+main #recipe figure img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: relative;
+}
+main #recipe figure h1 {
+  font-family: "ubuntu";
+  position: absolute;
+  background: linear-gradient(90deg, #a9c0ff 0%, #ffbbec 100%);
+  transform: skewY(-5deg) translateX(-50%);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  z-index: 10001;
+  padding: 10px 20px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.296);
+  white-space: nowrap;
+}
+main #recipe figure .like-area {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+main #recipe figure .like-area i {
+  display: flex;
+  place-items: center;
+  padding: 10px;
+  float: right;
+  font-size: 21px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+main #recipe figure .like-area i:hover {
+  background-color: rgba(128, 128, 128, 0.833);
+}
+
+#recipe .ingredients {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  margin: 40px 0;
+}
+#recipe .ingredients ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 20px;
+  -moz-column-gap: 40px;
+       column-gap: 40px;
+}
+@media (max-width: 800px) {
+  #recipe .ingredients ul {
+    grid-template-columns: 1fr;
+  }
+}
+#recipe .ingredients ul li {
+  display: flex;
+  gap: 10px;
+}
+#recipe .ingredients ul li i {
+  color: #a9c0ff;
+  cursor: pointer;
+}
+#recipe .ingredients ul li p {
+  white-space: nowrap;
+  max-width: 290px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 600px) {
+  #recipe .ingredients ul li p {
+    max-width: 300px;
+  }
+}
+@media (max-width: 800px) {
+  #recipe .ingredients ul li p {
+    max-width: 450px;
+  }
+}
+
+#recipe .directions {
+  text-align: center;
+  padding-bottom: 40px;
+}
+#recipe .directions h2 {
+  font-family: "Ubuntu";
+  font-size: 30px;
+  transform: skewY(-3deg);
+  font-weight: 600;
+  text-shadow: 0 0 30px #ffbbec;
+  color: #ffbbec;
+}
+#recipe .directions p {
+  padding: 5px;
+  margin: 20px 0;
+}
+#recipe .directions p span {
+  color: #ffbbec;
+}
+#recipe .directions a {
+  padding: 10px 30px;
+  border: 1px solid #a9c0ff;
+  color: #a9c0ff;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+#recipe .directions a:hover {
+  background-color: #a9c0ff;
+  color: white;
+}
+
+.bm-area {
+  position: relative;
+  display: block;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.bm-button {
+  cursor: pointer;
+}
+
+.dropdown {
+  display: none;
+  font-size: 14px;
+  position: absolute;
+  overflow: hidden;
+  left: -154px;
+  z-index: 1;
+  min-width: 200px;
+  background-color: #212121;
+  border: 1px solid #ffbbec;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.287);
+  border-radius: 15px 0 15px 15px;
+  transition: all 0.3s ease;
+}
+
+.dropdown a {
+  padding: 8px 10px;
+  color: #ffbbec;
+  text-decoration: none;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s;
+}
+.dropdown a img {
+  width: 40px;
+  height: 40px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+
+.bm-area:hover .dropdown {
+  display: block;
+}
+
+.bm-area:hover button {
+  border-radius: 10px 10px 0 0;
+}
+
+.dropdown a:hover {
+  background: #ffbbec;
+  color: black;
+}
+
+main #cart {
+  padding: 10px 20px;
+  height: 90vh;
+  overflow-y: scroll;
+}
+main #cart::-webkit-scrollbar {
+  width: 8px;
+}
+main #cart::-webkit-scrollbar-thumb {
+  border-radius: 30px;
+  background-color: #fbda61;
+}
+main #cart div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #a9c0ff;
+}
+main #cart div h2 {
+  color: #a9c0ff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.187);
+  letter-spacing: 1px;
+  border: 1px solid #a9c0ff;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+main #cart div button {
+  padding: 10px 20px;
+  background-color: red;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: filter 0.3s;
+}
+main #cart div button:hover {
+  filter: brightness(70%);
+}
+main #cart ul {
+  max-width: 90vh;
+  margin-top: 10px;
+  overflow-y: auto;
+}
+main #cart ul li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+main #cart ul i {
+  font-size: 20px;
+}
+main #cart ul i:hover {
+  color: red;
+  background-color: rgba(128, 128, 128, 0.586);
+  border-radius: 6px;
+}/*# sourceMappingURL=style.css.map */
